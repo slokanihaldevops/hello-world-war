@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    
+    environment{
+        PATH = "/usr/share/maven/bin/:$PATH"
+    }
+    stages{
+        stage("Git Checkout"){
+            steps{
+                git 'https://github.com/slokanihaldevops/hello-world-war.git'
+            }
+        }
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage("tomcat deploy"){
+            steps{
+                sshagent(['tomcatpipeline']) {
+                    sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@3.110.156.70:/home/ec2-user/apache-tomcat-10.1.26/webapp"
+                }
+            }
+       }
+    }
+}
