@@ -27,8 +27,7 @@
 			</build>
 
 
-		<distributionManagement>
-			</dependencies>
+	</dependencies>
 	
 	<distributionManagement>
 		 <snapshotRepository>
