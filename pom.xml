@@ -28,10 +28,19 @@
 
 
 		<distributionManagement>
-  <snapshotRepository>
-    <id>nexus</id>
-    <url>http://18.218.191.175:8081/nexus/content/repositories/snapshots</url>
-  </snapshotRepository>
-</distributionManagement>
+			</dependencies>
+	
+	<distributionManagement>
+		 <snapshotRepository>
+		    <id>nexusRepo</id>
+		    <url>http://13.235.81.149:8081/repository/sample-snapshots/</url>
+		 </snapshotRepository>
+		
+		<repository>
+		    <id>nexusRepo</id>
+		    <url>http://13.235.81.149:8081/repository/sample-releases/</url>
+		</repository>
+  	</distributionManagement>
+  
 
 </project>
